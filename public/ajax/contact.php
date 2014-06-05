@@ -1,6 +1,7 @@
 <?php
-require_once '../protected/CaptchaResponse.php';
-require_once '../protected/ContactMessage.php';
+
+require_once '../../classes/CaptchaResponse.php';
+require_once '../../classes/ContactMessage.php';
 
 try {
     $email = new ContactMessage();
