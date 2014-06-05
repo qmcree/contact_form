@@ -1,5 +1,7 @@
 <?php
 
+use GuzzleHttp\Client;
+
 class CaptchaResponse 
 {
     const VERIFY_URL = 'https://www.google.com/recaptcha/api/verify';
@@ -13,16 +15,16 @@ class CaptchaResponse
      */
     public static function validate($challenge, $response)
     {
-        $request = new HttpRequest(self::VERIFY_URL, HTTP_METH_POST);
-        $request->setPostFields(array(
-            'privatekey' => self::PRIVATE_KEY,
-            'remoteip' => $_SERVER['REMOTE_ADDR'],
-            'challenge' => $challenge,
-            'response' => $response,
-        ));
-        $request->send();
-        $response = $request->getResponseBody();
+        $client = new Client();
+        $response = $client->post(self::VERIFY_URL, [
+            'body' => [
+                'privatekey' => self::PRIVATE_KEY,
+                'remoteip' => $_SERVER['REMOTE_ADDR'],
+                'challenge' => $challenge,
+                'response' => $response,
+            ],
+        ]);
 
-        return (strpos($response, 'true') !== FALSE);
+        return (strpos($response->getBody(), 'true') !== FALSE);
     }
 } 
