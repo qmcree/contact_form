@@ -1,7 +1,6 @@
 <?php
 
-require_once '../../classes/CaptchaResponse.php';
-require_once '../../classes/ContactMessage.php';
+require_once '../../vendor/autoload.php';
 
 try {
     $email = new ContactMessage();
