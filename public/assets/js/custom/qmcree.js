@@ -7,7 +7,7 @@ var qmcree = {
     CONTACT_MSG_ERROR_ONE: "There's a problem with the highlighted field.",
     CONTACT_MSG_ERROR_MANY: "There are problems with the highlighted fields.",
     CONTACT_MSG_ERROR_REQUEST: "Something's wrong. Please email or call me directly.",
-    RECAPTCHA_PUBLIC_KEY: '6LfC6vASAAAAAF3sHK4LE_ghnbhDagp3FYLwbtaw',
+    RECAPTCHA_PUBLIC_KEY: '6LfB6vASAAAAAOjaDV094GOZXaATUQlKa4gGEKu5',
     PORTFOLIO_SELECTOR: '.bold-portfolio',
     POPUP_IMAGE_SELECTOR: '.image-popup',
     POPUP_VIDEO_SELECTOR: '.video-popup',
