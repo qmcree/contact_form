@@ -50,7 +50,8 @@ class ContactMessage
         if (!preg_match('/^[0-9a-zA-Z]+([0-9a-zA-Z]*[-._+])*[0-9a-zA-Z]+@[0-9a-zA-Z]+([-.][0-9a-zA-Z]+)*([0-9a-zA-Z]*[.])[a-zA-Z]{2,20}$/', $this->email))
             throw new Exception(self::MSG_ERROR_INVALID_EMAIL);
 
-        if (!CaptchaResponse::validate($this->captchaChallenge, $this->captchaResponse))
+        $response = new CaptchaResponse($this->captchaChallenge, $this->captchaResponse);
+        if (!$response->validate())
             throw new Exception(CaptchaResponse::ERROR_INVALID);
     }
 

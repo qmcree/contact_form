@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" uploadOnCheckin="b9022ac1-0b74-4517-963a-f6faa0555925">
+  <component name="PublishConfigData" uploadOnCheckin="98616fff-7cc3-44ec-83ff-5be9d765a8ed">
     <serverData>
       <paths name="qmcree.com">
         <serverdata>
@@ -10,7 +10,7 @@
         </serverdata>
       </paths>
     </serverData>
-    <option name="myUploadOnCheckinName" value="qmcree.com" />
+    <option name="myUploadOnCheckinName" value="localhost" />
   </component>
 </project>
 

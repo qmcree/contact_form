@@ -4,27 +4,43 @@ use GuzzleHttp\Client;
 
 class CaptchaResponse 
 {
-    const VERIFY_URL = 'https://www.google.com/recaptcha/api/verify';
-    const PRIVATE_KEY = '6LfC6vASAAAAAJyLMKTH01oyaAhw4VnIGzS8E-Br';
     const ERROR_INVALID = "The text entered doesn't match the image.";
 
+    public $challenge;
+    public $response;
+    private $verifyUrl;
+    private $privateKey;
+
+    public function __construct($challenge, $response)
+    {
+        $this->challenge = $challenge;
+        $this->response = $response;
+
+        $config = $this->getConfig();
+        $this->verifyUrl = $config['verify_url'];
+        $this->privateKey = $config['privatekey'];
+    }
+
     /**
-     * @param $challenge string
-     * @param $response string
      * @return bool TRUE if valid, FALSE if invalid.
      */
-    public static function validate($challenge, $response)
+    public function validate()
     {
         $client = new Client();
-        $response = $client->post(self::VERIFY_URL, [
+        $response = $client->post($this->verifyUrl, [
             'body' => [
-                'privatekey' => self::PRIVATE_KEY,
+                'privatekey' => $this->privateKey,
                 'remoteip' => $_SERVER['REMOTE_ADDR'],
-                'challenge' => $challenge,
-                'response' => $response,
+                'challenge' => $this->challenge,
+                'response' => $this->response,
             ],
         ]);
 
         return (strpos($response->getBody(), 'true') !== FALSE);
+    }
+
+    private function getConfig()
+    {
+        return require __DIR__ . '/../config/captcha.php';
     }
 } 
