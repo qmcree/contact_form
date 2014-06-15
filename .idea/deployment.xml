@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" uploadOnCheckin="98616fff-7cc3-44ec-83ff-5be9d765a8ed">
+  <component name="PublishConfigData" autoUpload="Always" serverName="localhost" uploadOnCheckin="98616fff-7cc3-44ec-83ff-5be9d765a8ed">
     <serverData>
+      <paths name="localhost">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/qmcree_com" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="qmcree.com">
         <serverdata>
           <mappings>
@@ -11,6 +18,7 @@
       </paths>
     </serverData>
     <option name="myUploadOnCheckinName" value="localhost" />
+    <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>
 
