@@ -4,7 +4,7 @@ use GuzzleHttp\Client;
 
 class ContactMessage
 {
-    const MAIL_SEND_URL = 'http://www.mailgun.com/qmcree.com/messages';
+    const MAIL_SEND_URL = 'https://api.mailgun.net/v2/qmcree.com/messages';
     const ADDRESS_TO = 'qmcree@gmail.com';
     const SUBJECT = 'Message from %s';
     const MSG_ERROR_EMPTY_FIELDS = 'Please complete all fields.';

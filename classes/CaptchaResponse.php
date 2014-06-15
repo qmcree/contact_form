@@ -35,8 +35,7 @@ class CaptchaResponse
                 'response' => $this->response,
             ],
         ]);
-
-        return (strpos($response->getBody(), 'true') !== FALSE);
+        return (strpos((string) $response->getBody(), 'true') !== FALSE);
     }
 
     private function getConfig()
