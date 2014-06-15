@@ -1,10 +1,10 @@
 <?php
 
-require_once __DIR__ . '/../../vendor/autoload.php';
+require_once '../../vendor/autoload.php';
 
 try {
-    $email = new ContactMessage();
-    $email->send();
+    $message = new ContactMessage();
+    $message->email();
     echo json_encode(array(
         'type' => 'success',
     ));

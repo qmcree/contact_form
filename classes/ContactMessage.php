@@ -1,7 +1,10 @@
 <?php
 
+use GuzzleHttp\Client;
+
 class ContactMessage
 {
+    const MAIL_SEND_URL = 'http://www.mailgun.com/qmcree.com/messages';
     const ADDRESS_TO = 'qmcree@gmail.com';
     const SUBJECT = 'Message from %s';
     const MSG_ERROR_EMPTY_FIELDS = 'Please complete all fields.';
@@ -55,11 +58,30 @@ class ContactMessage
      * Sends email.
      * @throws Exception
      */
-    public function send()
+    public function email()
     {
-        $subject = sprintf(self::SUBJECT, $this->name);
-        $body = sprintf("Form submission from %s <%s>\n\n%s", $this->name, $this->email, $this->message);
-        if (!mail(self::ADDRESS_TO, $subject, $body))
+        $config = $this->getMailConfig();
+
+        $client = new Client();
+
+        try {
+            $client->post(self::MAIL_SEND_URL, [
+                'auth' => [$config['user'], $config['password']],
+                'body' => [
+                    'from' => $this->email,
+                    'to' => self::ADDRESS_TO,
+                    'subject' => sprintf(self::SUBJECT, $this->name),
+                    'text' => sprintf("Form submission from %s <%s>\n\n%s", $this->name, $this->email, $this->message),
+                ],
+            ]);
+        }
+        catch (GuzzleHttp\Exception\TransferException $e) {
             throw new Exception(self::MSG_ERROR_EMAIL_FAILED);
+        }
+    }
+
+    private function getMailConfig()
+    {
+        return require __DIR__ . '/../config/mail.php';
     }
 } 

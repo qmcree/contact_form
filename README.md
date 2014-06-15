@@ -1,4 +1,5 @@
-contact_form
+qmcree_com
 ==========
 
-A contact form I made using PHP, Google's reCAPTCHA API, and jQuery. This is currently hosted on my personal Web site.
+My personal Web site containing my portfolio and resume. Included is a contact form I made using PHP, Google's reCAPTCHA API,
+and jQuery.

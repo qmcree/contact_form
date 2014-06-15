@@ -5,7 +5,7 @@ use GuzzleHttp\Client;
 class CaptchaResponse 
 {
     const VERIFY_URL = 'https://www.google.com/recaptcha/api/verify';
-    const PRIVATE_KEY = null; // removed for privacy.
+    const PRIVATE_KEY = '6LfC6vASAAAAAJyLMKTH01oyaAhw4VnIGzS8E-Br';
     const ERROR_INVALID = "The text entered doesn't match the image.";
 
     /**
