@@ -252,6 +252,20 @@ h2.section-title {
 .skill-bar-90 { width: 90%; }
 .skill-bar-100 { width: 100%; }
 
+#skills ul.items {
+    margin: 0;
+    padding: 0;
+}
+
+#skills ul.items li {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: rgba(22, 160, 133, 1);
+    margin: 3px 5px;
+    border-radius: 8px;
+    color: white;
+}
+
 /* 3.4 Portfolio */
 
 .bold-filters { 
